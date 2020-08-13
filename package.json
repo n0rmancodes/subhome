@@ -1,0 +1,22 @@
+{
+  "name": "subhome",
+  "version": "1.0.0",
+  "description": "SubHome is a simple homepage.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/n0rmancodes/subhome.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/n0rmancodes/subhome/issues"
+  },
+  "homepage": "https://github.com/n0rmancodes/subhome#readme",
+  "dependencies": {
+    "got": "^11.5.2"
+  }
+}

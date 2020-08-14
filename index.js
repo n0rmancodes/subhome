@@ -16,14 +16,18 @@ function runServer(req, res) {
     var path = ru.pathname;
     if (path.substring(path.length - 1, path.length) == ".") {path == path.substring(0, path.length - 1)}
     if (ru.pathname == "/api/weather") {
-        var query = ru.query.q;
+        var query = encodeURI(ru.query.q);
+        console.log(query);
         got("https://nominatim.openstreetmap.org/search.php?format=json&q=" + query).then(function (response) {
             var j = JSON.parse(response.body);
             var lat = j[0].lat;
             var lon = j[0].lon;
             var u = "https://api.weather.gov/points/" + lat + "," + lon;
+            console.log(u);
             got(u).then(function(response) {
+                console.log("got")
                 var k = JSON.parse(response.body);
+                console.log(k.properties.forecast)
                 got(k.properties.forecast).then(function(response) {
                     res.writeHead(200, {
                         "Access-Control-Allow-Region": "*",
